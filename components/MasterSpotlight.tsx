@@ -102,7 +102,7 @@ export default function MasterSpotlight({ onOpenBooking }: MasterSpotlightProps)
                 <div className="w-5 h-5 rounded-full bg-[#EFE8F6] text-[#7D5A9B] flex items-center justify-center flex-shrink-0 mt-0.5">
                   ✓
                 </div>
-                <span><strong>Real-Time Vocal Feedback:</strong> You are never left to guess. In live sessions, Ashish observes your screen and guides micro-adjustments that prevent strain.</span>
+                <span><strong>Real-Time Vocal Feedback:</strong> You are never left to guess. In live sessions, Yogacharya Ashish observes your screen and guides micro-adjustments that prevent strain.</span>
               </div>
             </div>
 
@@ -112,7 +112,7 @@ export default function MasterSpotlight({ onOpenBooking }: MasterSpotlightProps)
                 onClick={onOpenBooking}
                 className="rounded-full bg-[#3A244E] hover:bg-[#50346B] text-white px-7 py-3.5 text-xs sm:text-sm font-semibold shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer"
               >
-                <span>Request 1-on-1 Consultation with Ashish</span>
+                <span>Request 1-on-1 Consultation with Yogacharya Ashish</span>
                 <ArrowRight className="w-4 h-4 text-[#E2BA6C]" />
               </button>
 

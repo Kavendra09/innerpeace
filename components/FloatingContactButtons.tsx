@@ -29,8 +29,8 @@ export default function FloatingContactButtons({ onOpenBooking }: FloatingContac
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-center gap-3">
       {/* 1. Phone Call Floating Button (Teal) */}
       <a
-        href="tel:+919901484500"
-        title="Call Now (+91 99014 84500)"
+        href="tel:+919368871615"
+        title="Call Now (+91 93688 71615)"
         className="w-14 h-14 rounded-full bg-[#1B7086] hover:bg-[#155A6D] text-white shadow-xl flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 group relative border-2 border-white/40"
       >
         <Phone className="w-6 h-6 transition-transform group-hover:rotate-12" />
@@ -39,7 +39,7 @@ export default function FloatingContactButtons({ onOpenBooking }: FloatingContac
 
       {/* 2. WhatsApp Floating Button (Vibrant Green with gentle pulse) */}
       <a
-        href="https://wa.me/919901484500?text=Hello%20InnerPeace%20team,%20I%20would%20like%20to%20know%20more%20about%20your%20home%20yoga%20classes."
+        href="https://wa.me/919368871615?text=Hello%20InnerPeace%20team,%20I%20would%20like%20to%20know%20more%20about%20your%20home%20yoga%20classes."
         target="_blank"
         rel="noopener noreferrer"
         title="Chat on WhatsApp"

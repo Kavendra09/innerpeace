@@ -226,7 +226,7 @@ export default function InteractiveClassDemo({ onOpenBooking }: InteractiveClass
                   onClick={onOpenBooking}
                   className="rounded-xl border border-white/20 bg-white/10 hover:bg-white/20 text-white py-3 px-4 text-xs font-bold transition-all cursor-pointer"
                 >
-                  Try With Ashish →
+                  Try With Yogacharya Ashish →
                 </button>
               </div>
 

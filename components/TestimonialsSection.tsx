@@ -260,7 +260,7 @@ export default function TestimonialsSection({ onOpenBooking }: TestimonialsSecti
           </button>
 
           <a
-            href="https://wa.me/919901484500?text=Hello%20InnerPeace%20team,%20I%20saw%20your%20reviews%20and%20want%20to%20book%20a%20free%20demo%20session"
+            href="https://wa.me/919368871615?text=Hello%20InnerPeace%20team,%20I%20saw%20your%20reviews%20and%20want%20to%20book%20a%20free%20demo%20session"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3.5 text-xs sm:text-sm font-bold shadow-md transition-all"

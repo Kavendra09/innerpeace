@@ -37,7 +37,7 @@ export default function TrustMarquee() {
         {/* Right Contact Concierge */}
         <div className="flex items-center gap-4 shrink-0 pl-4">
           <a
-            href="https://wa.me/919901484500?text=Hello%20InnerPeace%20team,%20I%20would%20like%20to%20inquire%20about%20a%20live%201-on-1%20yoga%20session"
+            href="https://wa.me/919368871615?text=Hello%20InnerPeace%20team,%20I%20would%20like%20to%20inquire%20about%20a%20live%201-on-1%20yoga%20session"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-1.5 text-emerald-300 hover:text-white transition-colors font-semibold"

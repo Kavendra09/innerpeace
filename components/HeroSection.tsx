@@ -311,7 +311,7 @@ export default function HeroSection({ onOpenBooking }: HeroSectionProps) {
                 <div className="mt-6 pt-4 border-t border-stone-100 flex items-center justify-between text-xs text-[#5A496E]">
                   <span>Prefer instant connect?</span>
                   <a
-                    href="https://wa.me/919901484500"
+                    href="https://wa.me/919368871615"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="font-bold text-emerald-700 hover:text-emerald-800 flex items-center gap-1"
@@ -377,17 +377,17 @@ export default function HeroSection({ onOpenBooking }: HeroSectionProps) {
                       <div className="relative w-11 h-11 rounded-full overflow-hidden border-2 border-[#7D5A9B]">
                         <Image
                           src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=120&h=120&fit=crop&crop=faces&q=80"
-                          alt="Master Teacher"
+                          alt="Yogacharya Ashish"
                           fill
                           className="object-cover"
                         />
                       </div>
                       <div>
                         <div className="flex items-center gap-1.5">
-                          <p className="text-sm font-bold text-[#2A1B3D]">Master Faculty</p>
+                          <p className="text-sm font-bold text-[#2A1B3D]">Yogacharya Ashish</p>
                           <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
                         </div>
-                        <p className="text-[11px] text-[#5A496E]">Certified Personal Trainer</p>
+                        <p className="text-[11px] text-[#5A496E]">Lead Yoga Master &amp; Founder</p>
                       </div>
                     </div>
 

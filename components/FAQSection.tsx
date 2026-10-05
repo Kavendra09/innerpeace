@@ -94,7 +94,7 @@ export default function FAQSection({ onOpenBooking }: FAQSectionProps) {
           </div>
 
           <a
-            href="https://wa.me/919901484500?text=Hello%20InnerPeace%20team,%20I%20have%20a%20question%20about%20your%20home%20yoga%20plans"
+            href="https://wa.me/919368871615?text=Hello%20InnerPeace%20team,%20I%20have%20a%20question%20about%20your%20home%20yoga%20plans"
             target="_blank"
             rel="noopener noreferrer"
             className="shrink-0 inline-flex items-center gap-2 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2.5 text-xs font-bold shadow-sm transition-all"

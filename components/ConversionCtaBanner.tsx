@@ -45,7 +45,7 @@ export default function ConversionCtaBanner({ onOpenBooking }: ConversionCtaBann
               </button>
 
               <a
-                href="https://wa.me/919901484500?text=Hello%20InnerPeace%20team,%20I%20would%20like%20to%20book%20a%20free%201-on-1%20yoga%20demo%20session"
+                href="https://wa.me/919368871615?text=Hello%20InnerPeace%20team,%20I%20would%20like%20to%20book%20a%20free%201-on-1%20yoga%20demo%20session"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 text-sm font-extrabold shadow-xl transition-all duration-200 hover:scale-105"

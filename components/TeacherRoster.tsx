@@ -166,7 +166,7 @@ export default function TeacherRoster({ onSelectTeacher }: TeacherRosterProps) {
                   onClick={() => onSelectTeacher(teacher.name)}
                   className="w-full rounded-full bg-white hover:bg-[#3A244E] text-[#2A1B3D] hover:text-white border border-[#3A244E]/15 py-2.5 text-xs font-bold transition-all flex items-center justify-center gap-1.5 shadow-xs cursor-pointer"
                 >
-                  <span>Book 1-on-1 with {teacher.name.split(' ')[0]}</span>
+                  <span>Book 1-on-1 with {teacher.name === 'Yogacharya Ashish' ? 'Yogacharya Ashish' : teacher.name}</span>
                   <ArrowRight className="w-3.5 h-3.5 text-[#E5C287]" />
                 </button>
               </div>

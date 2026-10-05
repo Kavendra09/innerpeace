@@ -111,7 +111,7 @@ export default function Navbar({ onOpenBooking, timezone, setTimezone }: NavbarP
 
           {/* WhatsApp Direct Concierge */}
           <a
-            href="https://wa.me/919901484500?text=Hello%20InnerPeace%20team,%20I%20would%20like%20to%20inquire%20about%20a%20live%201-on-1%20yoga%20session"
+            href="https://wa.me/919368871615?text=Hello%20InnerPeace%20team,%20I%20would%20like%20to%20inquire%20about%20a%20live%201-on-1%20yoga%20session"
             target="_blank"
             rel="noopener noreferrer"
             className="w-10 h-10 rounded-full bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 text-emerald-700 flex items-center justify-center transition-all shadow-2xs shrink-0 hover:scale-105"
@@ -136,7 +136,7 @@ export default function Navbar({ onOpenBooking, timezone, setTimezone }: NavbarP
           
           {/* Quick WhatsApp Tap on Mobile */}
           <a
-            href="https://wa.me/919901484500?text=Hello%20InnerPeace%20team,%20I%20would%20like%20to%20inquire%20about%20a%20live%201-on-1%20yoga%20session"
+            href="https://wa.me/919368871615?text=Hello%20InnerPeace%20team,%20I%20would%20like%20to%20inquire%20about%20a%20live%201-on-1%20yoga%20session"
             target="_blank"
             rel="noopener noreferrer"
             className="w-9 h-9 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white flex items-center justify-center shadow-xs shrink-0"
@@ -242,7 +242,7 @@ export default function Navbar({ onOpenBooking, timezone, setTimezone }: NavbarP
             {/* Quick Contact Buttons Row */}
             <div className="grid grid-cols-2 gap-2">
               <a
-                href="https://wa.me/919901484500?text=Hello%20InnerPeace%20team,%20I%20would%20like%20to%20inquire%20about%20a%20live%201-on-1%20yoga%20session"
+                href="https://wa.me/919368871615?text=Hello%20InnerPeace%20team,%20I%20would%20like%20to%20inquire%20about%20a%20live%201-on-1%20yoga%20session"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="rounded-xl bg-emerald-600 hover:bg-emerald-700 py-2.5 text-xs font-bold text-white shadow-xs flex items-center justify-center gap-1.5"
@@ -252,7 +252,7 @@ export default function Navbar({ onOpenBooking, timezone, setTimezone }: NavbarP
               </a>
 
               <a
-                href="tel:+919901484500"
+                href="tel:+919368871615"
                 className="rounded-xl bg-[#1B7086] hover:bg-[#155A6D] py-2.5 text-xs font-bold text-white shadow-xs flex items-center justify-center gap-1.5"
               >
                 <Phone className="w-4 h-4" />

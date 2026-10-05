@@ -82,13 +82,13 @@ export default function Footer() {
               </p>
               <div className="mt-2 space-y-1.5 text-xs text-purple-200/80">
                 <a
-                  href="https://wa.me/919901484500"
+                  href="https://wa.me/919368871615"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-emerald-300 hover:text-white transition-colors"
                 >
                   <MessageCircle className="w-4 h-4 shrink-0" />
-                  <span>WhatsApp: +91 99014 84500</span>
+                  <span>WhatsApp: +91 93688 71615</span>
                 </a>
                 <p className="flex items-center gap-2 text-purple-200/70">
                   <Mail className="w-4 h-4 shrink-0" />
