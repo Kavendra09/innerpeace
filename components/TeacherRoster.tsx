@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { Star, ShieldCheck, Award, MapPin, ArrowRight } from 'lucide-react';
+import { Star, ShieldCheck, Award, MapPin, ArrowRight, Sparkles, Clock } from 'lucide-react';
 
 interface TeacherRosterProps {
   onSelectTeacher: (teacherName: string) => void;
@@ -11,65 +11,74 @@ interface TeacherRosterProps {
 export default function TeacherRoster({ onSelectTeacher }: TeacherRosterProps) {
   const teachers = [
     {
-      name: 'Maya Chen',
-      title: 'Senior Alignment & Iyengar Specialist',
-      credentials: 'E-RYT 500 • 14 Years Teaching',
-      location: 'San Francisco & Bali Hub',
-      rating: '4.99',
-      reviewCount: 420,
-      specialty: 'Spinal Decompression & Posture Therapy',
-      quote: '“Most practitioners force poses into shapes. We sculpt the shape around your individual skeletal structure.”',
-      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&auto=format&fit=crop&q=80',
+      name: 'Yogacharya Ashish',
+      title: 'Founder & Lead Yogacharya',
+      credentials: 'Traditional Himalayan Gurukul Lineage • E-RYT 500',
+      location: 'Rishikesh & International Hubs',
+      rating: '5.0',
+      reviewCount: 1240,
+      timezones: 'EST • PST • GMT • CET',
+      specialty: 'Ashtanga Alignment, Spine Traction & Mind Decompression',
+      quote: '“Posture is merely the doorway. Once the spine is straight and the breath is long, inner peace arises effortlessly.”',
+      image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&auto=format&fit=crop&q=85',
+      badge: 'Founder & Master Guide',
     },
     {
       name: 'Acharya Devraj',
-      title: 'Himalayan Pranayama & Ashtanga Master',
-      credentials: 'Traditional Gurukul Lineage • 18 Years',
-      location: 'Rishikesh, India',
-      rating: '5.0',
-      reviewCount: 680,
-      specialty: 'Breath Mastery, Vagus Nerve & Nervous System',
-      quote: '“Calm the breath, and the frantic Western mind naturally settles. Posture is merely the seat for the breath.”',
-      image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800&auto=format&fit=crop&q=80',
+      title: 'Himalayan Pranayama & Vagus Nerve Master',
+      credentials: '20+ Years Traditional Lineage • Gurukul Master',
+      location: 'Uttarkashi & New York Virtual Hub',
+      rating: '4.99',
+      reviewCount: 780,
+      timezones: 'EST • CST • GMT',
+      specialty: 'Parasympathetic Down-Regulation, Anxiety & Sleep',
+      quote: '“Calm the frantic breath, and the overwhelmed modern mind settles. We do not force calm—we breathe it into being.”',
+      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&auto=format&fit=crop&q=85',
+      badge: 'Breathwork Specialist',
     },
     {
-      name: 'Elena Rostova',
-      title: 'Biomechanist & Somatic Yin Director',
-      credentials: 'M.Sc. Kinesiology • E-RYT 500',
-      location: 'Zurich & London Hub',
+      name: 'Dr. Meenakshi Sharma',
+      title: 'Therapeutic Yoga & Ayurvedic Doctor',
+      credentials: 'BAMS (Ayurvedic Medicine) • M.Sc. Yoga Therapy',
+      location: 'New Delhi & California Virtual Hub',
       rating: '4.98',
-      reviewCount: 310,
-      specialty: 'Deep Fascia Recovery & Athletic Longevity',
-      quote: '“Stretching cold muscles causes micro-tears. True flexibility comes from neurological safety and intelligent breathing.”',
-      image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800&auto=format&fit=crop&q=80',
+      reviewCount: 620,
+      timezones: 'PST • MST • EST • GMT',
+      specialty: 'Sciatica, Women’s Hormonal Health (PCOS) & Digestion',
+      quote: '“True yoga therapy treats the unique constitutional dosha and spinal structure of each human being.”',
+      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&auto=format&fit=crop&q=85',
+      badge: 'Clinical Yoga Doctor',
     },
     {
-      name: 'Marcus Vance',
-      title: 'Dynamic Mobility & High-Performance Flow',
-      credentials: 'Former Pro Athlete • 500hr Ashtanga',
-      location: 'New York City Hub',
-      rating: '4.97',
-      reviewCount: 295,
-      specialty: 'Core Stability & Hip Mobility for Athletes',
-      quote: '“Yoga isn’t just flexibility—it’s full-range strength. We build a body that feels resilient in everyday life.”',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&auto=format&fit=crop&q=80',
+      name: 'Maya Chen',
+      title: 'Senior Biomechanist & Iyengar Specialist',
+      credentials: 'E-RYT 500 • Certified Iyengar & Posture Specialist',
+      location: 'San Francisco & London Virtual Hub',
+      rating: '4.98',
+      reviewCount: 540,
+      timezones: 'PST • EST • GMT • CET',
+      specialty: 'Desk Posture Decompression & Sacroiliac Alignment',
+      quote: '“Most practitioners force their bodies into shapes. We intelligently sculpt each posture around your skeletal framework.”',
+      image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800&auto=format&fit=crop&q=85',
+      badge: 'Anatomy Director',
     },
   ];
 
   return (
-    <section id="teachers" className="py-24 bg-white text-[#242E25]">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <section id="teachers" className="py-24 bg-white text-[#2A1B3D] border-t border-[#3A244E]/10">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="mx-auto max-w-3xl text-center">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#C97A58]">
-            Vetted Pedagogical Excellence
-          </span>
-          <h2 className="mt-3 font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-[#242E25]">
-            Learn from the top 1% of authentic global instructors.
+          <div className="inline-flex items-center gap-1.5 rounded-full bg-[#EFE8F6] px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#7D5A9B] mb-3">
+            <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
+            <span>Top 1% Accredited Faculty</span>
+          </div>
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-[#2A1B3D]">
+            Learn from authentic masters rooted in original traditions.
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-[#4A5B4C] leading-relaxed">
-            Every InnerPeace teacher has taught for at least a decade, completed 500+ hours of clinical anatomy training, and passed our stringent 4-tier live screen presence audit.
+          <p className="mt-4 text-base sm:text-lg text-[#5A496E] leading-relaxed">
+            Every InnerPeace teacher holds at least a decade of clinical teaching experience, E-RYT 500 credentials, and rigorous clinical anatomy qualifications to guide North American and international practitioners safely.
           </p>
         </div>
 
@@ -78,59 +87,74 @@ export default function TeacherRoster({ onSelectTeacher }: TeacherRosterProps) {
           {teachers.map((teacher, idx) => (
             <div
               key={idx}
-              className="rounded-3xl bg-[#FAF7F2] border border-[#242E25]/10 overflow-hidden flex flex-col justify-between hover:shadow-lg transition-all group"
+              className="rounded-3xl bg-[#FAF8FC] border border-[#3A244E]/10 overflow-hidden flex flex-col justify-between hover:shadow-xl hover:border-[#7D5A9B]/40 transition-all duration-300 group"
             >
               <div>
-                {/* Photo */}
-                <div className="relative h-72 w-full bg-stone-200 overflow-hidden">
+                {/* Photo & Overlays */}
+                <div className="relative h-72 w-full bg-stone-900 overflow-hidden">
                   <Image
                     src={teacher.image}
                     alt={teacher.name}
                     fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
                   />
                   
-                  {/* Rating Tag */}
-                  <div className="absolute top-3 right-3 bg-white/95 backdrop-blur-md rounded-full px-2.5 py-1 text-xs font-bold text-[#242E25] flex items-center gap-1 shadow-sm">
-                    <Star className="w-3.5 h-3.5 fill-[#D4A373] text-[#D4A373]" />
-                    <span>{teacher.rating}</span>
-                    <span className="text-stone-400 font-normal">({teacher.reviewCount})</span>
+                  {/* Subtle Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#2A1B3D]/80 via-transparent to-transparent" />
+
+                  {/* Badge */}
+                  <div className="absolute top-3 left-3 bg-white/95 backdrop-blur-md rounded-full px-3 py-1 text-[10px] font-bold text-[#3A244E] flex items-center gap-1 shadow-sm">
+                    <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+                    <span>{teacher.badge}</span>
                   </div>
 
-                  {/* Location Tag */}
-                  <div className="absolute bottom-3 left-3 bg-black/60 backdrop-blur-md rounded-lg px-2.5 py-1 text-[11px] text-white flex items-center gap-1">
-                    <MapPin className="w-3 h-3 text-[#8E9F8A]" />
-                    <span>{teacher.location}</span>
+                  {/* Rating Tag */}
+                  <div className="absolute top-3 right-3 bg-black/60 backdrop-blur-md rounded-full px-2.5 py-1 text-xs font-bold text-white flex items-center gap-1">
+                    <Star className="w-3.5 h-3.5 fill-[#D4AF37] text-[#D4AF37]" />
+                    <span>{teacher.rating}</span>
+                    <span className="text-stone-300 font-normal text-[10px]">({teacher.reviewCount})</span>
+                  </div>
+
+                  {/* Location & Timezones */}
+                  <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-[11px] text-white/90">
+                    <div className="flex items-center gap-1">
+                      <MapPin className="w-3 h-3 text-[#E5C287]" />
+                      <span className="truncate">{teacher.location}</span>
+                    </div>
                   </div>
                 </div>
 
                 {/* Details */}
                 <div className="p-6">
-                  <div className="flex items-center gap-1.5">
-                    <h3 className="font-serif text-xl font-bold text-[#242E25]">
+                  <div className="flex items-center justify-between">
+                    <h3 className="font-serif text-xl font-bold text-[#2A1B3D]">
                       {teacher.name}
                     </h3>
-                    <ShieldCheck className="w-4 h-4 text-emerald-600" />
                   </div>
                   
-                  <p className="text-xs font-semibold text-[#C97A58] mt-1">
+                  <p className="text-xs font-semibold text-[#7D5A9B] mt-0.5">
                     {teacher.title}
                   </p>
                   
-                  <p className="text-[11px] text-[#4A5B4C] font-mono mt-0.5">
+                  <p className="text-[11px] text-[#5A496E] font-medium mt-1">
                     {teacher.credentials}
                   </p>
 
-                  <div className="mt-4 pt-4 border-t border-[#242E25]/10">
-                    <span className="text-[10px] uppercase font-bold text-stone-400 tracking-wider">
+                  <div className="mt-3 flex items-center gap-1.5 text-[11px] text-[#5A496E] bg-[#EFE8F6]/60 rounded-lg px-2.5 py-1">
+                    <Clock className="w-3 h-3 text-[#7D5A9B]" />
+                    <span><strong>Active in:</strong> {teacher.timezones}</span>
+                  </div>
+
+                  <div className="mt-4 pt-4 border-t border-[#3A244E]/10">
+                    <span className="text-[10px] uppercase font-bold text-[#7D5A9B] tracking-wider">
                       Specialty
                     </span>
-                    <p className="text-xs font-semibold text-[#242E25] mt-0.5">
+                    <p className="text-xs font-semibold text-[#2A1B3D] mt-0.5 leading-snug">
                       {teacher.specialty}
                     </p>
                   </div>
 
-                  <p className="mt-4 text-xs italic text-[#4A5B4C] leading-relaxed">
+                  <p className="mt-4 text-xs italic text-[#5A496E] leading-relaxed line-clamp-3">
                     {teacher.quote}
                   </p>
                 </div>
@@ -140,10 +164,10 @@ export default function TeacherRoster({ onSelectTeacher }: TeacherRosterProps) {
               <div className="p-6 pt-0">
                 <button
                   onClick={() => onSelectTeacher(teacher.name)}
-                  className="w-full rounded-full bg-white hover:bg-[#242E25] text-[#242E25] hover:text-white border border-[#242E25]/15 py-2.5 text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+                  className="w-full rounded-full bg-white hover:bg-[#3A244E] text-[#2A1B3D] hover:text-white border border-[#3A244E]/15 py-2.5 text-xs font-bold transition-all flex items-center justify-center gap-1.5 shadow-xs cursor-pointer"
                 >
-                  <span>Request 1-on-1 with {teacher.name.split(' ')[0]}</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  <span>Book 1-on-1 with {teacher.name.split(' ')[0]}</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-[#E5C287]" />
                 </button>
               </div>
             </div>

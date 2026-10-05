@@ -1,18 +1,20 @@
 'use client';
 
 import React, { useState } from 'react';
+import TrustMarquee from '@/components/TrustMarquee';
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
-import PillarsSection from '@/components/PillarsSection';
-import ComparisonSection from '@/components/ComparisonSection';
-import MasterSpotlight from '@/components/MasterSpotlight';
-import UseCasesSection from '@/components/UseCasesSection';
-import InteractiveClassDemo from '@/components/InteractiveClassDemo';
-import ScheduleSection from '@/components/ScheduleSection';
-import PricingSection from '@/components/PricingSection';
+import AccreditationStrip from '@/components/AccreditationStrip';
+import OurPlansSection from '@/components/OurPlansSection';
+import ChooseYourGoalSection from '@/components/ChooseYourGoalSection';
+import HowItWorksSection from '@/components/HowItWorksSection';
+import TestimonialsSection from '@/components/TestimonialsSection';
+import TeacherRoster from '@/components/TeacherRoster';
 import FAQSection from '@/components/FAQSection';
+import ConversionCtaBanner from '@/components/ConversionCtaBanner';
 import Footer from '@/components/Footer';
 import BookingModal from '@/components/BookingModal';
+import FloatingContactButtons from '@/components/FloatingContactButtons';
 
 export default function Home() {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
@@ -26,63 +28,79 @@ export default function Home() {
     setIsBookingOpen(true);
   };
 
-  const handleSelectClass = (title: string, _time: string, teacher: string) => {
-    setSelectedClassTitle(title);
-    setSelectedTeacher(teacher);
+  const handleSelectGoal = (goalTitle: string) => {
+    setSelectedClassTitle(`Yoga Protocol: ${goalTitle}`);
+    setSelectedTeacher(undefined);
     setIsBookingOpen(true);
   };
 
-  const handleSelectTier = (_tierName: string) => {
+  const handleSelectPlan = (planName: string) => {
+    setSelectedClassTitle(`Plan Selection: ${planName}`);
+    setSelectedTeacher(undefined);
+    setIsBookingOpen(true);
+  };
+
+  const handleSelectTeacher = (teacherName: string) => {
+    setSelectedClassTitle(`Private 1-on-1 Session with ${teacherName}`);
+    setSelectedTeacher(teacherName);
     setIsBookingOpen(true);
   };
 
   return (
     <div className="min-h-screen flex flex-col bg-[#FAF8FC]">
-      {/* Top Navbar */}
+      {/* 0. Top Announcement & Trust Marquee */}
+      <TrustMarquee />
+
+      {/* 1. Global Navigation Bar */}
       <Navbar
         onOpenBooking={handleOpenBooking}
         timezone={timezone}
         setTimezone={setTimezone}
       />
 
-      {/* Main Content Flow */}
+      {/* Main High-Converting Ads Landing Page Funnel */}
       <main className="flex-1">
-        {/* 1. Hero Section (Find Your Inner Peace Through Yoga • Move • Breathe • Be) */}
+        {/* 2. Hero Section (Lead Capture Form + Trust Card + Core Value Proposition) */}
         <HeroSection onOpenBooking={handleOpenBooking} />
 
-        {/* 2. The 4 Sacred Pillars (Balance, Strength, Flexibility, Mindfulness) + 4 Modalities */}
-        <PillarsSection onOpenBooking={handleOpenBooking} />
+        {/* 3. Accreditations & Trust Badges Strip */}
+        <AccreditationStrip />
 
-        {/* 3. Founder & Master Spotlight: Yogacharya Ashish */}
-        <MasterSpotlight onOpenBooking={handleOpenBooking} />
-
-        {/* 4. Why Inner Peace Live? Comparison Matrix vs Studios vs Apps */}
-        <ComparisonSection onOpenBooking={handleOpenBooking} />
-
-        {/* 5. Physiological Goals (Posture, Athletic Recovery, Vagus Nerve) */}
-        <UseCasesSection onOpenBooking={handleOpenBooking} />
-
-        {/* 6. Interactive Live Posture Alignment Demo */}
-        <InteractiveClassDemo onOpenBooking={handleOpenBooking} />
-
-        {/* 7. Live Schedule with Timezone Selector (EST, GMT, CET, PST) */}
-        <ScheduleSection
-          onSelectClass={handleSelectClass}
-          timezone={timezone}
-          setTimezone={setTimezone}
+        {/* 4. OUR PLANS (3 Days / 4 Days / 5 Days - Flexible Plans, 12/16/20 Classes) */}
+        <OurPlansSection
+          onSelectPlan={handleSelectPlan}
+          onOpenBooking={handleOpenBooking}
         />
 
-        {/* 8. Transparent Memberships & 30-Day Guarantee */}
-        <PricingSection onSelectTier={handleSelectTier} />
+        {/* 5. CHOOSE YOUR GOAL (9 Target Programs: Back Pain, Weight Loss, Stress, Prenatal, Senior, etc.) */}
+        <ChooseYourGoalSection
+          onOpenBooking={handleOpenBooking}
+          onSelectGoal={handleSelectGoal}
+        />
 
-        {/* 9. Frequently Asked Questions */}
-        <FAQSection />
+        {/* 6. HOW IT WORKS (3 Effortless Steps to Start) */}
+        <HowItWorksSection onOpenBooking={handleOpenBooking} />
+
+        {/* 7. REVIEWS & RATINGS (4.98/5 Stars Google & Meta Proof + Verified Transformations) */}
+        <TestimonialsSection onOpenBooking={handleOpenBooking} />
+
+        {/* 8. CERTIFIED MASTER FACULTY (Experienced Male & Female Teachers) */}
+        <TeacherRoster onSelectTeacher={handleSelectTeacher} />
+
+        {/* 9. FREQUENTLY ASKED QUESTIONS (Objection Clearing: Trainer Gender, Timings, Free Demo) */}
+        <FAQSection onOpenBooking={handleOpenBooking} />
+
+        {/* 10. FINAL HIGH-CONVERTING CLOSING CTA */}
+        <ConversionCtaBanner onOpenBooking={handleOpenBooking} />
       </main>
 
-      {/* Footer */}
+      {/* 11. Comprehensive Clean Footer */}
       <Footer />
 
-      {/* Interactive Multi-Step Booking Modal */}
+      {/* 12. Floating Action Controls (Call Now, WhatsApp Chat, Scroll-to-Top) */}
+      <FloatingContactButtons onOpenBooking={handleOpenBooking} />
+
+      {/* 13. Interactive 1-on-1 Demo Booking Modal */}
       <BookingModal
         isOpen={isBookingOpen}
         onClose={() => setIsBookingOpen(false)}

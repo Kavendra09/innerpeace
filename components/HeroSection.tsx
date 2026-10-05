@@ -1,21 +1,22 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import InnerPeaceLogo from './InnerPeaceLogo';
 import { 
-  CheckCircle2, 
   Sparkles, 
   Video, 
   Star, 
   ShieldCheck, 
-  ArrowRight,
-  Clock,
-  Shield,
-  Activity,
-  Heart,
-  Globe2
+  ArrowRight, 
+  Clock, 
+  Shield, 
+  Activity, 
+  Users, 
+  Award, 
+  Calendar,
+  CheckCircle2,
+  Phone
 } from 'lucide-react';
 
 interface HeroSectionProps {
@@ -23,10 +24,25 @@ interface HeroSectionProps {
 }
 
 export default function HeroSection({ onOpenBooking }: HeroSectionProps) {
+  const [activeRightTab, setActiveRightTab] = useState<'form' | 'video'>('form');
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleQuickSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (name && phone) {
+      setIsSubmitted(true);
+      setTimeout(() => {
+        onOpenBooking();
+      }, 1200);
+    }
+  };
+
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-[#FAF8FC] via-[#F5EFF9] to-[#FAF8FC] pt-28 pb-20 lg:pt-36 lg:pb-28 text-[#2A1B3D]">
+    <section className="relative overflow-hidden bg-gradient-to-b from-[#FAF8FC] via-[#F5EFF9] to-[#FAF8FC] pt-24 pb-16 lg:pt-32 lg:pb-24 text-[#2A1B3D]">
       
-      {/* Background Lavender Mountain Mist & Sunrise Ambient Glows */}
+      {/* Background Ambient Glows */}
       <div 
         aria-hidden="true" 
         className="pointer-events-none absolute -top-40 right-10 w-[600px] h-[600px] rounded-full bg-[#ECE3F5] blur-[140px] opacity-80" 
@@ -42,8 +58,8 @@ export default function HeroSection({ onOpenBooking }: HeroSectionProps) {
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
-        {/* Top Banner Tagline Strip */}
-        <div className="flex flex-wrap items-center justify-between gap-3 pb-6 mb-6 border-b border-[#3A244E]/10 text-xs font-semibold text-[#5A496E]">
+        {/* Top Tagline Strip */}
+        <div className="flex flex-wrap items-center justify-between gap-3 pb-5 mb-6 border-b border-[#3A244E]/10 text-xs font-semibold text-[#5A496E]">
           <div className="flex items-center gap-2">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#7D5A9B] opacity-75"></span>
@@ -61,13 +77,13 @@ export default function HeroSection({ onOpenBooking }: HeroSectionProps) {
             <span>•</span>
             <span>Home Sessions</span>
             <span>•</span>
-            <span>Worldwide</span>
+            <span>Certified Masters</span>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
           
-          {/* LEFT COLUMN: High-Converting Copy (7 Cols) */}
+          {/* LEFT COLUMN: Hero Copy & Stats Card (7 Cols) */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -75,219 +91,316 @@ export default function HeroSection({ onOpenBooking }: HeroSectionProps) {
             className="lg:col-span-7 flex flex-col items-start"
           >
             {/* Real-time Status Badge */}
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#3A244E]/10 bg-white/90 px-3.5 py-1.5 shadow-sm backdrop-blur-md mb-4">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#3A244E]/10 bg-white/90 px-3.5 py-1.5 shadow-xs backdrop-blur-md mb-3">
               <Sparkles className="w-3.5 h-3.5 text-[#D4AF37]" />
-              <span className="text-xs font-semibold uppercase tracking-wider text-[#5A496E]">
-                Live 2-Way Interactive Yoga • No Pre-Recorded Videos
+              <span className="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-[#5A496E]">
+                Personalized 1-on-1 Sessions At Your Doorstep &amp; Online
               </span>
             </div>
 
-            {/* Script Intro Line */}
-            <p className="font-serif italic text-2xl sm:text-3xl text-[#7D5A9B] font-normal mb-1">
-              Find Your
-            </p>
-
             {/* Main Headline */}
-            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-normal tracking-tight text-[#2A1B3D] leading-[1.12]">
-              INNER PEACE <br />
-              <span className="italic font-light text-[#7D5A9B]">
-                THROUGH YOGA.
+            <h1 className="font-serif text-3xl sm:text-5xl lg:text-5.5xl font-bold tracking-tight text-[#2A1B3D] leading-[1.15]">
+              Your Personal Yoga Trainer, <br />
+              <span className="italic font-normal text-[#7D5A9B]">
+                Right at Your Doorstep
               </span>
             </h1>
 
-            {/* Slogan */}
-            <p className="mt-3 text-sm font-bold uppercase tracking-widest text-[#7D5A9B]">
-              Yoga for a Healthier, Happier You — Yogacharya Ashish
-            </p>
-
             {/* Sub-headline */}
             <p className="mt-4 text-base sm:text-lg text-[#5A496E] max-w-2xl font-normal leading-relaxed">
-              Step onto your mat at home and receive real-time posture correction, mindful breathwork, and personalized alignment from authentic masters. Tailored for busy professionals across the US, UK, and Europe.
+              Skip the travel and enjoy expert one-to-one yoga classes in the comfort of your home. Tailored routines for flexibility, back pain, stress relief, and lifelong vitality.
             </p>
 
-            {/* 4 Pillars Mini Pills */}
-            <div className="mt-6 flex flex-wrap items-center gap-2 text-xs font-semibold text-[#2A1B3D]">
-              <span className="px-3 py-1.5 rounded-full bg-white border border-[#3A244E]/10 shadow-sm flex items-center gap-1.5">
-                <span className="text-[#7D5A9B]">✦</span> BALANCE
-              </span>
-              <span className="px-3 py-1.5 rounded-full bg-white border border-[#3A244E]/10 shadow-sm flex items-center gap-1.5">
-                <span className="text-[#7D5A9B]">✦</span> STRENGTH
-              </span>
-              <span className="px-3 py-1.5 rounded-full bg-white border border-[#3A244E]/10 shadow-sm flex items-center gap-1.5">
-                <span className="text-[#7D5A9B]">✦</span> FLEXIBILITY
-              </span>
-              <span className="px-3 py-1.5 rounded-full bg-white border border-[#3A244E]/10 shadow-sm flex items-center gap-1.5">
-                <span className="text-[#7D5A9B]">✦</span> MINDFULNESS
-              </span>
-            </div>
-
             {/* Action Buttons */}
-            <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto">
+            <div className="mt-6 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 w-full sm:w-auto">
               <button
                 onClick={onOpenBooking}
-                className="group relative inline-flex items-center justify-center rounded-full bg-[#3A244E] px-8 py-4 text-base font-semibold text-white shadow-lg shadow-[#3A244E]/25 transition-all duration-300 hover:bg-[#50346B] hover:shadow-xl focus:outline-none cursor-pointer"
+                className="group relative inline-flex items-center justify-center rounded-full bg-[#3A244E] px-7 py-3.5 text-sm sm:text-base font-semibold text-white shadow-lg shadow-[#3A244E]/25 transition-all duration-300 hover:bg-[#50346B] hover:shadow-xl focus:outline-none cursor-pointer"
               >
-                <span>Book Your Free 1-on-1 Class</span>
-                <ArrowRight className="ml-2 h-4 w-4 text-[#E2BA6C] transition-transform duration-200 group-hover:translate-x-1" />
+                <span>Book Free 1-on-1 Demo</span>
+                <ArrowRight className="ml-2 h-4 w-4 text-[#E5C287] transition-transform duration-200 group-hover:translate-x-1" />
               </button>
 
               <a
-                href="#schedule"
-                className="inline-flex items-center justify-center rounded-full border border-[#3A244E]/15 bg-white/80 px-7 py-4 text-base font-medium text-[#2A1B3D] backdrop-blur-sm transition-all duration-200 hover:bg-white hover:border-[#3A244E]/30 shadow-sm"
+                href="#our-plans"
+                className="inline-flex items-center justify-center rounded-full border border-[#3A244E]/15 bg-white/90 px-6 py-3.5 text-sm font-semibold text-[#2A1B3D] backdrop-blur-xs transition-all duration-200 hover:bg-white hover:border-[#3A244E]/30 shadow-xs"
               >
                 <Clock className="mr-2 h-4 w-4 text-[#7D5A9B]" />
-                <span>Today&apos;s Live Broadcasts</span>
+                <span>View Plans &amp; Timings</span>
               </a>
             </div>
 
-            {/* Friction Reducer */}
-            <p className="mt-3 text-xs text-[#5A496E]/90">
-              *Zero credit card required. Includes 15-min posture diagnostic with Yogacharya Ashish.
-            </p>
-
-            {/* Social Proof Strip */}
-            <div className="mt-8 pt-6 border-t border-[#3A244E]/10 flex flex-wrap items-center gap-6">
-              <div className="flex -space-x-2 overflow-hidden">
-                {[1, 2, 3, 4].map((i) => (
-                  <div
-                    key={i}
-                    className="inline-block h-9 w-9 rounded-full ring-2 ring-[#FAF8FC] bg-stone-300 overflow-hidden relative shadow-sm"
-                  >
-                    <Image
-                      src={`https://images.unsplash.com/photo-${
-                        i === 1 ? '1534528741775-53994a69daeb' :
-                        i === 2 ? '1507003211169-0a1dd7228f2d' :
-                        i === 3 ? '1517841905240-472988babdf9' :
-                                  '1539571696357-5a69c17a67c6'
-                      }?w=80&h=80&fit=crop&crop=faces&q=80`}
-                      alt="InnerPeace student"
-                      fill
-                      className="object-cover"
-                    />
+            {/* STATS CARD with 3 Columns & Bottom Purple Banner */}
+            <div className="mt-8 w-full max-w-xl rounded-3xl bg-white border border-[#3A244E]/15 shadow-xl overflow-hidden">
+              
+              {/* 3 Stats Columns */}
+              <div className="p-5 sm:p-6 grid grid-cols-3 divide-x divide-[#3A244E]/10 text-center">
+                
+                {/* 1. Market Since */}
+                <div className="px-2 sm:px-3 flex flex-col items-center justify-between">
+                  <div className="w-10 h-10 rounded-full bg-[#FAF8FC] border border-[#7D5A9B]/20 flex items-center justify-center text-[#7D5A9B] mb-2 shadow-xs">
+                    <Calendar className="w-5 h-5 text-[#4A2E68]" />
                   </div>
-                ))}
+                  <p className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[#5A496E]">
+                    IN MARKET SINCE
+                  </p>
+                  <p className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-[#3A244E] mt-1 font-serif">
+                    2002
+                  </p>
+                  <span className="text-[10px] text-[#7D5A9B] font-semibold mt-0.5">✦ Verified Lineage</span>
+                </div>
+
+                {/* 2. Served Over */}
+                <div className="px-2 sm:px-3 flex flex-col items-center justify-between">
+                  <div className="w-10 h-10 rounded-full bg-[#FAF8FC] border border-[#7D5A9B]/20 flex items-center justify-center text-[#7D5A9B] mb-2 shadow-xs">
+                    <Users className="w-5 h-5 text-[#4A2E68]" />
+                  </div>
+                  <p className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[#5A496E]">
+                    SERVED OVER
+                  </p>
+                  <p className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-[#3A244E] mt-1 font-serif">
+                    15,000+
+                  </p>
+                  <div className="mt-1 px-2 py-0.5 rounded-full bg-[#4A2E68] text-white text-[8px] sm:text-[9px] font-bold uppercase">
+                    HAPPY CLIENTS
+                  </div>
+                </div>
+
+                {/* 3. Certified Yoga Teachers */}
+                <div className="px-2 sm:px-3 flex flex-col items-center justify-between">
+                  <div className="w-10 h-10 rounded-full bg-[#FAF8FC] border border-[#7D5A9B]/20 flex items-center justify-center text-[#7D5A9B] mb-2 shadow-xs">
+                    <Award className="w-5 h-5 text-[#4A2E68]" />
+                  </div>
+                  <p className="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[#5A496E]">
+                    CERTIFIED TEACHERS
+                  </p>
+                  <p className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-[#3A244E] mt-1 font-serif">
+                    8+ YEARS
+                  </p>
+                  <div className="mt-1 px-2 py-0.5 rounded-full bg-[#4A2E68] text-white text-[8px] sm:text-[9px] font-bold uppercase">
+                    TEACHER EXPERIENCE
+                  </div>
+                </div>
+
               </div>
 
-              <div>
-                <div className="flex items-center gap-1">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-3.5 h-3.5 fill-[#D4AF37] text-[#D4AF37]" />
-                  ))}
-                  <span className="ml-1 text-xs font-bold text-[#2A1B3D]">4.98 / 5.0</span>
+              {/* Bottom Purple Ribbon */}
+              <div className="bg-[#4A2E68] text-white py-2.5 px-4 flex flex-wrap items-center justify-around gap-2 text-[10px] sm:text-[11px] font-bold tracking-wider">
+                <div className="flex items-center gap-1.5">
+                  <ShieldCheck className="w-3.5 h-3.5 text-[#E5C287]" />
+                  <span>TRUSTED SINCE 2002</span>
                 </div>
-                <p className="text-[11px] text-[#5A496E]">
-                  Trusted by 2,400+ mindful practitioners in London, New York & Zurich
-                </p>
+                <div className="flex items-center gap-1.5">
+                  <Users className="w-3.5 h-3.5 text-[#E5C287]" />
+                  <span>THOUSANDS OF HAPPY CLIENTS</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <Award className="w-3.5 h-3.5 text-[#E5C287]" />
+                  <span>EXPERIENCED. QUALIFIED. TRUSTED.</span>
+                </div>
               </div>
+
             </div>
+
           </motion.div>
 
-          {/* RIGHT COLUMN: Visual Live Video Demonstration (5 Cols) */}
+          {/* RIGHT COLUMN: Book Free Demo Form & Live Preview (5 Cols) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-5 relative"
           >
-            {/* Main Video Frame */}
-            <div className="relative rounded-3xl overflow-hidden bg-[#1E122B] border-4 border-white shadow-2xl shadow-[#3A244E]/20 aspect-[4/5]">
-              <Image
-                src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=1000&auto=format&fit=crop&q=85"
-                alt="Live 1-on-1 yoga alignment session with Yogacharya Ashish"
-                fill
-                priority
-                className="object-cover object-center brightness-[0.92]"
-              />
-
-              {/* Glassmorphic Top Status Bar */}
-              <div className="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none">
-                <div className="flex items-center gap-2 rounded-full bg-black/60 backdrop-blur-md px-3 py-1.5 text-white border border-white/15">
-                  <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                  <span className="text-xs font-semibold tracking-wide">LIVE 1-ON-1</span>
-                  <span className="text-xs text-stone-300 font-mono">18:42</span>
-                </div>
-
-                <div className="flex items-center gap-1.5 rounded-full bg-black/60 backdrop-blur-md px-3 py-1.5 text-white text-xs border border-white/15">
-                  <Video className="w-3.5 h-3.5 text-emerald-400" />
-                  <span>2-Way HD Video</span>
-                </div>
-              </div>
-
-              {/* Real-time Alignment Correction Overlay Callout */}
-              <motion.div 
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.8, duration: 0.5 }}
-                className="absolute top-20 right-4 max-w-[220px] rounded-2xl bg-white/95 backdrop-blur-md p-3.5 shadow-xl border border-purple-100"
-              >
-                <div className="flex items-start gap-2.5">
-                  <div className="p-1.5 rounded-full bg-[#EFE8F6] text-[#7D5A9B] flex-shrink-0">
-                    <Sparkles className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <div className="flex items-center justify-between">
-                      <p className="text-[11px] font-bold text-[#2A1B3D]">Yogacharya Ashish</p>
-                      <span className="text-[9px] text-[#7D5A9B] font-bold uppercase">Now</span>
-                    </div>
-                    <p className="text-[11px] text-[#5A496E] leading-snug mt-0.5">
-                      &quot;Relax the neck, Sarah. Draw your floating ribs in and lengthen through your crown.&quot;
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Biometrics Alignment Indicator Tag */}
-              <div className="absolute top-44 left-4 bg-black/45 backdrop-blur-md border border-white/20 rounded-xl px-3 py-1.5 text-[11px] text-white flex items-center gap-1.5">
-                <Activity className="w-3.5 h-3.5 text-emerald-400" />
-                <span>Spine Traction: Optimal (96%)</span>
-              </div>
-
-              {/* Bottom Master Teacher Profile Banner */}
-              <div className="absolute bottom-4 left-4 right-4 rounded-2xl bg-white/95 backdrop-blur-md p-3.5 shadow-lg border border-white/20">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="relative w-11 h-11 rounded-full overflow-hidden border-2 border-[#7D5A9B]">
-                      <Image
-                        src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=120&h=120&fit=crop&crop=faces&q=80"
-                        alt="Yogacharya Ashish"
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                    <div>
-                      <div className="flex items-center gap-1.5">
-                        <p className="text-sm font-bold text-[#2A1B3D]">Yogacharya Ashish</p>
-                        <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-                      </div>
-                      <p className="text-[11px] text-[#5A496E]">Lead Master • Himalayan Lineage</p>
-                    </div>
-                  </div>
-
-                  <div className="text-right">
-                    <span className="inline-block px-2.5 py-0.5 rounded-full bg-[#EFE8F6] text-[10px] font-semibold text-[#3A244E]">
-                      Observing Live
-                    </span>
-                    <p className="text-[10px] text-stone-500 mt-1">2-Way View Active</p>
-                  </div>
-                </div>
+            {/* View Switcher Tabs */}
+            <div className="flex justify-center mb-3">
+              <div className="inline-flex rounded-full bg-white p-1 border border-[#3A244E]/10 shadow-xs">
+                <button
+                  onClick={() => setActiveRightTab('form')}
+                  className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
+                    activeRightTab === 'form'
+                      ? 'bg-[#4A2E68] text-white shadow-xs'
+                      : 'text-[#5A496E] hover:text-[#2A1B3D]'
+                  }`}
+                >
+                  Book Free Demo Form
+                </button>
+                <button
+                  onClick={() => setActiveRightTab('video')}
+                  className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
+                    activeRightTab === 'video'
+                      ? 'bg-[#4A2E68] text-white shadow-xs'
+                      : 'text-[#5A496E] hover:text-[#2A1B3D]'
+                  }`}
+                >
+                  Live Alignment Preview
+                </button>
               </div>
             </div>
 
-            {/* Decorative Floating Metric Card */}
-            <motion.div
-              initial={{ x: -20, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ delay: 1, duration: 0.6 }}
-              className="hidden sm:flex absolute -bottom-5 -left-6 rounded-2xl bg-white p-3.5 shadow-xl border border-[#3A244E]/10 items-center gap-3"
-            >
-              <div className="w-10 h-10 rounded-full bg-[#EFE8F6] flex items-center justify-center text-[#7D5A9B]">
-                <Shield className="w-5 h-5" />
+            {/* 1. BOOK FREE DEMO FORM CARD (Matching Screenshot 5) */}
+            {activeRightTab === 'form' ? (
+              <div className="rounded-3xl bg-white border border-[#3A244E]/15 shadow-2xl p-6 sm:p-8 relative overflow-hidden">
+                <div className="text-center pb-5 border-b border-stone-100">
+                  <h3 className="font-serif text-2xl sm:text-3xl font-extrabold text-[#4A2E68] tracking-tight">
+                    BOOK FREE DEMO NOW
+                  </h3>
+                  <p className="mt-1 text-xs text-[#5A496E]">
+                    Experience personalized one-on-one yoga guidance at your doorstep
+                  </p>
+                </div>
+
+                {!isSubmitted ? (
+                  <form onSubmit={handleQuickSubmit} className="mt-6 space-y-4">
+                    <div>
+                      <label className="block text-xs font-bold text-[#2A1B3D] mb-1.5">
+                        Full Name <span className="text-red-500">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        placeholder="Enter your full name"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        className="w-full rounded-xl bg-[#FAF8FC] border border-[#3A244E]/20 px-4 py-3 text-sm text-[#2A1B3D] placeholder-[#5A496E]/50 outline-none focus:border-[#4A2E68] focus:ring-2 focus:ring-[#7D5A9B]/20 transition-all"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-bold text-[#2A1B3D] mb-1.5">
+                        Phone Number <span className="text-red-500">*</span>
+                      </label>
+                      <input
+                        type="tel"
+                        required
+                        placeholder="Enter your phone number"
+                        value={phone}
+                        onChange={(e) => setPhone(e.target.value)}
+                        className="w-full rounded-xl bg-[#FAF8FC] border border-[#3A244E]/20 px-4 py-3 text-sm text-[#2A1B3D] placeholder-[#5A496E]/50 outline-none focus:border-[#4A2E68] focus:ring-2 focus:ring-[#7D5A9B]/20 transition-all"
+                      />
+                    </div>
+
+                    <div className="pt-2">
+                      <button
+                        type="submit"
+                        className="w-full rounded-xl py-3.5 px-6 text-sm font-bold text-white bg-[#4A2E68] hover:bg-[#5E3A85] shadow-lg shadow-[#4A2E68]/25 transition-all duration-200 cursor-pointer flex items-center justify-center gap-2"
+                      >
+                        <span>Submit &amp; Schedule Class</span>
+                        <ArrowRight className="w-4 h-4 text-[#E5C287]" />
+                      </button>
+                    </div>
+
+                    <div className="pt-2 text-center">
+                      <p className="text-[11px] text-[#5A496E]">
+                        🔒 100% Free • Zero commitment • No spam
+                      </p>
+                    </div>
+                  </form>
+                ) : (
+                  <div className="py-10 text-center space-y-3">
+                    <div className="w-14 h-14 rounded-full bg-emerald-100 text-emerald-600 mx-auto flex items-center justify-center">
+                      <CheckCircle2 className="w-8 h-8" />
+                    </div>
+                    <h4 className="text-xl font-bold text-[#2A1B3D]">Demo Request Received!</h4>
+                    <p className="text-xs text-[#5A496E] max-w-xs mx-auto">
+                      Thank you, <strong className="text-[#2A1B3D]">{name}</strong>. Our senior yoga counselor is opening your schedule confirmation...
+                    </p>
+                  </div>
+                )}
+
+                {/* Direct Call / WhatsApp quick helper strip */}
+                <div className="mt-6 pt-4 border-t border-stone-100 flex items-center justify-between text-xs text-[#5A496E]">
+                  <span>Prefer instant connect?</span>
+                  <a
+                    href="https://wa.me/919901484500"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-bold text-emerald-700 hover:text-emerald-800 flex items-center gap-1"
+                  >
+                    <span>WhatsApp Us Now</span>
+                    <ArrowRight className="w-3 h-3" />
+                  </a>
+                </div>
               </div>
-              <div>
-                <p className="text-xs font-bold text-[#2A1B3D]">Zero Injury Risk</p>
-                <p className="text-[11px] text-[#5A496E]">Real-time anatomical safety</p>
+            ) : (
+              /* 2. LIVE VIDEO INTERACTIVE PREVIEW */
+              <div className="relative rounded-3xl overflow-hidden bg-[#1E122B] border-4 border-white shadow-2xl shadow-[#3A244E]/20 aspect-[4/5]">
+                <Image
+                  src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=1000&auto=format&fit=crop&q=85"
+                  alt="Live 1-on-1 yoga alignment session"
+                  fill
+                  priority
+                  className="object-cover object-center brightness-[0.92]"
+                />
+
+                {/* Glassmorphic Top Status Bar */}
+                <div className="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none">
+                  <div className="flex items-center gap-2 rounded-full bg-black/60 backdrop-blur-md px-3 py-1.5 text-white border border-white/15">
+                    <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                    <span className="text-xs font-semibold tracking-wide">LIVE 1-ON-1</span>
+                    <span className="text-xs text-stone-300 font-mono">18:42</span>
+                  </div>
+
+                  <div className="flex items-center gap-1.5 rounded-full bg-black/60 backdrop-blur-md px-3 py-1.5 text-white text-xs border border-white/15">
+                    <Video className="w-3.5 h-3.5 text-emerald-400" />
+                    <span>2-Way HD Video</span>
+                  </div>
+                </div>
+
+                {/* Real-time Alignment Correction Overlay Callout */}
+                <div className="absolute top-20 right-4 max-w-[220px] rounded-2xl bg-white/95 backdrop-blur-md p-3.5 shadow-xl border border-purple-100">
+                  <div className="flex items-start gap-2.5">
+                    <div className="p-1.5 rounded-full bg-[#EFE8F6] text-[#7D5A9B] shrink-0">
+                      <Sparkles className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <div className="flex items-center justify-between">
+                        <p className="text-[11px] font-bold text-[#2A1B3D]">Yogacharya Ashish</p>
+                        <span className="text-[9px] text-[#7D5A9B] font-bold uppercase">Now</span>
+                      </div>
+                      <p className="text-[11px] text-[#5A496E] leading-snug mt-0.5">
+                        &quot;Relax the shoulders, keep your spine tall and take a deep breath.&quot;
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Biometrics Alignment Indicator Tag */}
+                <div className="absolute top-44 left-4 bg-black/45 backdrop-blur-md border border-white/20 rounded-xl px-3 py-1.5 text-[11px] text-white flex items-center gap-1.5">
+                  <Activity className="w-3.5 h-3.5 text-emerald-400" />
+                  <span>Spine Traction: Optimal (96%)</span>
+                </div>
+
+                {/* Bottom Master Teacher Profile Banner */}
+                <div className="absolute bottom-4 left-4 right-4 rounded-2xl bg-white/95 backdrop-blur-md p-3.5 shadow-lg border border-white/20">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className="relative w-11 h-11 rounded-full overflow-hidden border-2 border-[#7D5A9B]">
+                        <Image
+                          src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=120&h=120&fit=crop&crop=faces&q=80"
+                          alt="Master Teacher"
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                      <div>
+                        <div className="flex items-center gap-1.5">
+                          <p className="text-sm font-bold text-[#2A1B3D]">Master Faculty</p>
+                          <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+                        </div>
+                        <p className="text-[11px] text-[#5A496E]">Certified Personal Trainer</p>
+                      </div>
+                    </div>
+
+                    <button
+                      onClick={onOpenBooking}
+                      className="px-3 py-1.5 rounded-full bg-[#4A2E68] text-white text-xs font-bold shadow-xs cursor-pointer hover:bg-[#5E3A85]"
+                    >
+                      Book Free Demo
+                    </button>
+                  </div>
+                </div>
               </div>
-            </motion.div>
+            )}
           </motion.div>
 
         </div>

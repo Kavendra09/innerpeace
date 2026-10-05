@@ -1,76 +1,107 @@
 'use client';
 
 import React, { useState } from 'react';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, HelpCircle, MessageCircle, ArrowRight } from 'lucide-react';
 
-export default function FAQSection() {
+interface FAQSectionProps {
+  onOpenBooking?: () => void;
+}
+
+export default function FAQSection({ onOpenBooking }: FAQSectionProps) {
   const [openIdx, setOpenIdx] = useState<number | null>(0);
 
   const faqs = [
     {
-      q: 'How does real-time posture correction actually work via webcam?',
-      a: 'When you place your laptop, tablet, or phone 6–8 feet from your mat, our master instructors observe your side profile, joint angles, and spinal alignment. Because our classes are capped at only 8 students (or 1-on-1), the instructor watches you continuously, offering precise vocal cues (“Sarah, soften your left knee,” “Michael, lengthen your lumbar spine”) so you never push into injury.',
+      q: 'Do I get to choose between a male or female personal yoga teacher?',
+      a: 'Yes, absolutely. We have highly qualified and certified male and female yoga masters available. You can specify your preference when booking your free demo session or messaging us on WhatsApp, and we will match you accordingly.',
     },
     {
-      q: 'What if my apartment/living room is small or not studio-perfect?',
-      a: 'You only need enough space to roll out a standard yoga mat and step back so your whole body is in frame. Our students practice from New York apartments, London flats, and hotel rooms. Teachers are accustomed to normal living spaces—we care about your spine, not your background furniture.',
+      q: 'Is the first 1-on-1 demo session completely free?',
+      a: 'Yes, 100% free! There is zero credit card required to book your demo. It includes a 45-minute personal posture diagnostic, gentle introductory practice, and personalized routine recommendation from our senior master trainer.',
     },
     {
-      q: 'What equipment or props do I need to get started?',
-      a: 'All you need is a yoga mat and any device with a camera (laptop, iPad, or smartphone). For restorative or therapeutic sessions, a couch pillow, a folded blanket, or a belt can easily substitute for traditional yoga bolsters and straps.',
+      q: 'How do the 1-on-1 home sessions and online sessions work?',
+      a: 'For home sessions, our certified personal yoga trainer visits your doorstep at your selected morning or evening hour with personalized attention. For online sessions, you join a direct 2-way HD video call where the trainer continuously observes your angles and corrects your posture in real time.',
     },
     {
-      q: 'What if an unexpected client meeting or work call forces me to miss class?',
-      a: 'We understand the demands of high-pressure corporate and consulting careers. You can reschedule or cancel any session up to 2 hours before start time directly through your member portal with zero penalty or loss of class credit.',
+      q: 'Can I choose my own timing and change it if my schedule varies?',
+      a: 'Yes! All our 3-day, 4-day, and 5-day weekly plans are designed for busy professionals and families. You have complete flexibility to schedule morning or evening slots and can reschedule easily via direct WhatsApp coordination with your trainer.',
     },
     {
-      q: 'Why is this superior to pre-recorded apps like Peloton or Alo Moves?',
-      a: 'Pre-recorded apps are one-way entertainment. If you have tight hamstrings and tuck your pelvis in a forward fold, an app will never warn you that you are herniating a disc. InnerPeace restores the ancient guru-shishya parampara (direct teacher-to-student lineage) with modern low-latency video.',
+      q: 'I suffer from severe back pain / slip disc / cervical stiffness. Is it safe?',
+      a: 'Yes. Our trainers are certified in therapeutic alignment and clinical yoga. We conduct an initial health assessment and eliminate any risky poses, focusing on gentle spinal traction, lumbar relief, and core strengthening that actively relieves pain.',
+    },
+    {
+      q: 'What is included in the monthly plans?',
+      a: 'Every plan includes dedicated one-to-one sessions (12, 16, or 20 classes per month depending on your chosen frequency), customized diet/lifestyle tips, flexible scheduling, and ongoing progress tracking.',
     },
   ];
 
   return (
-    <section className="py-24 bg-white text-[#242E25]">
-      <div className="mx-auto max-w-4xl px-6 lg:px-8">
+    <section id="faq" className="py-20 lg:py-24 bg-white text-[#2A1B3D] border-t border-[#3A244E]/10">
+      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="text-center">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#C97A58]">
-            Clarity & Guidance
-          </span>
-          <h2 className="mt-3 font-serif text-3xl sm:text-4xl font-normal text-[#242E25]">
+          <div className="inline-flex items-center gap-1.5 rounded-full bg-[#EFE8F6] px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-[#7D5A9B] mb-3">
+            <HelpCircle className="w-3.5 h-3.5 text-[#D4AF37]" />
+            <span>Got Questions? We Have Answers</span>
+          </div>
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#2A1B3D]">
             Frequently Asked Questions
           </h2>
-          <p className="mt-3 text-sm sm:text-base text-[#4A5B4C]">
-            Everything you need to know about stepping onto your live virtual mat.
+          <p className="mt-3 text-sm sm:text-base text-[#5A496E]">
+            Quick clarity to help you book your first session with complete confidence.
           </p>
         </div>
 
         {/* Accordion List */}
-        <div className="mt-12 divide-y divide-[#242E25]/10 border-y border-[#242E25]/10">
+        <div className="mt-12 divide-y divide-[#3A244E]/10 border-y border-[#3A244E]/10">
           {faqs.map((faq, idx) => {
             const isOpen = openIdx === idx;
             return (
               <div key={idx} className="py-5">
                 <button
                   onClick={() => setOpenIdx(isOpen ? null : idx)}
-                  className="w-full flex items-center justify-between text-left text-base sm:text-lg font-serif font-medium text-[#242E25] hover:text-[#C97A58] transition-colors cursor-pointer"
+                  className="w-full flex items-center justify-between text-left text-base sm:text-lg font-serif font-bold text-[#2A1B3D] hover:text-[#7D5A9B] transition-colors cursor-pointer"
                 >
                   <span className="pr-4">{faq.q}</span>
                   <ChevronDown
-                    className={`w-5 h-5 text-[#8E9F8A] transition-transform duration-200 flex-shrink-0 ${
-                      isOpen ? 'rotate-180 text-[#C97A58]' : ''
+                    className={`w-5 h-5 text-[#8B6FAD] transition-transform duration-200 shrink-0 ${
+                      isOpen ? 'rotate-180 text-[#4A2E68]' : ''
                     }`}
                   />
                 </button>
                 {isOpen && (
-                  <p className="mt-3 text-xs sm:text-sm text-[#4A5B4C] leading-relaxed animate-in fade-in duration-200">
+                  <p className="mt-3 text-xs sm:text-sm text-[#5A496E] leading-relaxed">
                     {faq.a}
                   </p>
                 )}
               </div>
             );
           })}
+        </div>
+
+        {/* Fast Action WhatsApp Banner */}
+        <div className="mt-12 rounded-2xl bg-[#FAF8FC] border border-[#3A244E]/15 p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="text-left">
+            <h4 className="text-sm font-bold text-[#2A1B3D]">
+              Have a specific question about your location or timing?
+            </h4>
+            <p className="text-xs text-[#5A496E] mt-0.5">
+              Talk directly with our senior yoga coordinator on WhatsApp for immediate support.
+            </p>
+          </div>
+
+          <a
+            href="https://wa.me/919901484500?text=Hello%20InnerPeace%20team,%20I%20have%20a%20question%20about%20your%20home%20yoga%20plans"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="shrink-0 inline-flex items-center gap-2 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2.5 text-xs font-bold shadow-sm transition-all"
+          >
+            <MessageCircle className="w-4 h-4" />
+            <span>Chat on WhatsApp</span>
+          </a>
         </div>
 
       </div>
