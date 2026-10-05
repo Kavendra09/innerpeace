@@ -33,6 +33,7 @@ interface ClassItem {
     'Europe/London': string;
     'Europe/Paris': string;
     'America/Los_Angeles': string;
+    'Asia/Kolkata'?: string;
   };
 }
 
@@ -54,6 +55,7 @@ const scheduleData: ClassItem[] = [
       'Europe/London': '12:00 PM GMT',
       'Europe/Paris': '01:00 PM CET',
       'America/Los_Angeles': '04:00 AM PST',
+      'Asia/Kolkata': '04:30 PM IST',
     },
   },
   {
@@ -73,6 +75,7 @@ const scheduleData: ClassItem[] = [
       'Europe/London': '02:00 PM GMT',
       'Europe/Paris': '03:00 PM CET',
       'America/Los_Angeles': '06:00 AM PST',
+      'Asia/Kolkata': '06:30 PM IST',
     },
   },
   {
@@ -92,6 +95,7 @@ const scheduleData: ClassItem[] = [
       'Europe/London': '05:30 PM GMT',
       'Europe/Paris': '06:30 PM CET',
       'America/Los_Angeles': '09:30 AM PST',
+      'Asia/Kolkata': '10:00 PM IST',
     },
   },
   {
@@ -111,6 +115,7 @@ const scheduleData: ClassItem[] = [
       'Europe/London': '08:00 PM GMT',
       'Europe/Paris': '09:00 PM CET',
       'America/Los_Angeles': '12:00 PM PST',
+      'Asia/Kolkata': '01:30 AM IST (+1)',
     },
   },
   {
@@ -130,6 +135,7 @@ const scheduleData: ClassItem[] = [
       'Europe/London': '11:30 PM GMT',
       'Europe/Paris': '12:30 AM CET',
       'America/Los_Angeles': '03:30 PM PST',
+      'Asia/Kolkata': '07:00 AM IST (+1)',
     },
   },
 ];
@@ -182,6 +188,7 @@ export default function ScheduleSection({ onSelectClass, timezone, setTimezone }
                 <option value="Europe/London">London (GMT)</option>
                 <option value="Europe/Paris">Paris/Berlin (CET)</option>
                 <option value="America/Los_Angeles">San Francisco (PST)</option>
+                <option value="Asia/Kolkata">India (IST)</option>
               </select>
             </div>
           </div>

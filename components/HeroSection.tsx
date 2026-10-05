@@ -21,18 +21,28 @@ import {
 
 interface HeroSectionProps {
   onOpenBooking: () => void;
+  onLeadCapture?: (name: string, phone: string, goal: string) => void;
 }
 
-export default function HeroSection({ onOpenBooking }: HeroSectionProps) {
+export default function HeroSection({ onOpenBooking, onLeadCapture }: HeroSectionProps) {
   const [activeRightTab, setActiveRightTab] = useState<'form' | 'video'>('form');
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
+  const [selectedGoal, setSelectedGoal] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const goalChips = [
+    { label: '🦴 Back Pain', value: 'Back Pain, Cervical & Sciatica Yoga' },
+    { label: '⚖️ Weight Loss', value: 'Weight Loss Yoga' },
+    { label: '🧘 Stress Relief', value: 'Stress Relief & Mind Relaxation Yoga' },
+    { label: '💪 General Fitness', value: 'General Fitness Yoga' },
+  ];
 
   const handleQuickSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (name && phone) {
       setIsSubmitted(true);
+      if (onLeadCapture) onLeadCapture(name, phone, selectedGoal);
       setTimeout(() => {
         onOpenBooking();
       }, 1200);
@@ -237,20 +247,44 @@ export default function HeroSection({ onOpenBooking }: HeroSectionProps) {
               </div>
             </div>
 
-            {/* 1. BOOK FREE DEMO FORM CARD (Matching Screenshot 5) */}
+            {/* 1. BOOK FREE DEMO FORM CARD */}
             {activeRightTab === 'form' ? (
               <div className="rounded-3xl bg-white border border-[#3A244E]/15 shadow-2xl p-6 sm:p-8 relative overflow-hidden">
-                <div className="text-center pb-5 border-b border-stone-100">
+                <div className="text-center pb-4 border-b border-stone-100">
                   <h3 className="font-serif text-2xl sm:text-3xl font-extrabold text-[#4A2E68] tracking-tight">
-                    BOOK FREE DEMO NOW
+                    Claim Your Free 1-on-1 Session
                   </h3>
                   <p className="mt-1 text-xs text-[#5A496E]">
-                    Experience personalized one-on-one yoga guidance at your doorstep
+                    Personalized yoga — at your doorstep or online. Zero cost.
                   </p>
                 </div>
 
                 {!isSubmitted ? (
-                  <form onSubmit={handleQuickSubmit} className="mt-6 space-y-4">
+                  <form onSubmit={handleQuickSubmit} className="mt-5 space-y-4">
+
+                    {/* Goal Chip Selector */}
+                    <div>
+                      <label className="block text-xs font-bold text-[#2A1B3D] mb-2">
+                        What do you need most? <span className="text-[#7D5A9B] font-normal">(optional)</span>
+                      </label>
+                      <div className="grid grid-cols-2 gap-2">
+                        {goalChips.map((chip) => (
+                          <button
+                            key={chip.value}
+                            type="button"
+                            onClick={() => setSelectedGoal(selectedGoal === chip.value ? '' : chip.value)}
+                            className={`py-2 px-3 rounded-xl text-xs font-semibold border transition-all cursor-pointer text-left ${
+                              selectedGoal === chip.value
+                                ? 'bg-[#EFE8F6] border-[#7D5A9B] text-[#4A2E68] shadow-sm'
+                                : 'bg-[#FAF8FC] border-[#3A244E]/15 text-[#5A496E] hover:border-[#7D5A9B]/40'
+                            }`}
+                          >
+                            {chip.label}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
                     <div>
                       <label className="block text-xs font-bold text-[#2A1B3D] mb-1.5">
                         Full Name <span className="text-red-500">*</span>
@@ -267,7 +301,7 @@ export default function HeroSection({ onOpenBooking }: HeroSectionProps) {
 
                     <div>
                       <label className="block text-xs font-bold text-[#2A1B3D] mb-1.5">
-                        Phone Number <span className="text-red-500">*</span>
+                        Phone / WhatsApp <span className="text-red-500">*</span>
                       </label>
                       <input
                         type="tel"
@@ -279,19 +313,19 @@ export default function HeroSection({ onOpenBooking }: HeroSectionProps) {
                       />
                     </div>
 
-                    <div className="pt-2">
+                    <div className="pt-1">
                       <button
                         type="submit"
                         className="w-full rounded-xl py-3.5 px-6 text-sm font-bold text-white bg-[#4A2E68] hover:bg-[#5E3A85] shadow-lg shadow-[#4A2E68]/25 transition-all duration-200 cursor-pointer flex items-center justify-center gap-2"
                       >
-                        <span>Submit &amp; Schedule Class</span>
+                        <span>Get My Free Demo Session →</span>
                         <ArrowRight className="w-4 h-4 text-[#E5C287]" />
                       </button>
                     </div>
 
-                    <div className="pt-2 text-center">
+                    <div className="text-center">
                       <p className="text-[11px] text-[#5A496E]">
-                        🔒 100% Free • Zero commitment • No spam
+                        🔒 100% Free • No credit card • No lock-in contract
                       </p>
                     </div>
                   </form>

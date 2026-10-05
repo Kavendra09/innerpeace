@@ -20,15 +20,18 @@ export default function OurPlansSection({ onSelectPlan, onOpenBooking }: OurPlan
       subDays: 'PER WEEK',
       classes: '12 CLASSES',
       subClasses: 'PER MONTH',
+      priceAnchor: 'Free Demo • Then ₹499/session',
+      pricePerSession: '₹499',
+      tagline: 'Maintain health & build consistency',
       themeColor: '#4A2E68',
       headerGradient: 'from-[#3A244E] via-[#4E3167] to-[#603B80]',
       pillBg: 'bg-[#4A2E68]',
       checkColor: 'text-[#4A2E68]',
       features: [
-        'One-to-One Yoga Sessions',
-        'Personalized Yoga Plan',
-        'Flexible Timing',
-        'Track Your Progress',
+        'One-to-One Personal Yoga Sessions',
+        'Custom Posture & Health Assessment',
+        'Flexible Morning or Evening Slots',
+        'WhatsApp Progress Check-ins',
       ],
       popular: true,
     },
@@ -39,35 +42,41 @@ export default function OurPlansSection({ onSelectPlan, onOpenBooking }: OurPlan
       subDays: 'PER WEEK',
       classes: '16 CLASSES',
       subClasses: 'PER MONTH',
+      priceAnchor: 'Most Popular • ₹449/session',
+      pricePerSession: '₹449',
+      tagline: 'Accelerate results & build strength',
       themeColor: '#0284C7',
       headerGradient: 'from-[#0369A1] via-[#0284C7] to-[#38BDF8]',
       pillBg: 'bg-[#0369A1]',
       checkColor: 'text-[#0284C7]',
       features: [
-        'One-to-One Yoga Sessions',
-        'Personalized Yoga Plan',
-        'Flexible Timing',
-        'Better Results',
+        'Everything in 3-Day Plan',
+        'Personalized Diet & Lifestyle Guidance',
+        'Bi-weekly Progress Photo Review',
+        'Priority Schedule Rescheduling',
       ],
       popular: false,
     },
     {
       id: '5-days',
-      badge: 'MOST MAXIMUM RESULTS ★',
+      badge: 'MAXIMUM RESULTS ★',
       badgeClass: 'bg-[#D4AF37] text-white',
       days: '5 DAYS',
       subDays: 'PER WEEK',
       classes: '20 CLASSES',
       subClasses: 'PER MONTH',
+      priceAnchor: 'Best Value • ₹399/session',
+      pricePerSession: '₹399',
+      tagline: 'Complete lifestyle transformation',
       themeColor: '#701A75',
       headerGradient: 'from-[#581C87] via-[#701A75] to-[#A21CAF]',
       pillBg: 'bg-[#701A75]',
       checkColor: 'text-[#701A75]',
       features: [
-        'One-to-One Yoga Sessions',
-        'Personalized Yoga Plan',
-        'Flexible Timing',
-        'Most Maximum Results',
+        'Everything in 4-Day Plan',
+        'Dedicated WhatsApp Hotline (Priority)',
+        '1 Free Makeup Class / Month',
+        'Monthly Spine & Posture Report Card',
       ],
       popular: true,
     },
@@ -101,11 +110,11 @@ export default function OurPlansSection({ onSelectPlan, onOpenBooking }: OurPlan
           </div>
 
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#2A1B3D]">
-            OUR PLANS
+            Pick Your Practice Frequency
           </h2>
           <p className="mt-2 text-xs sm:text-sm font-semibold tracking-wide text-[#7D5A9B] flex items-center justify-center gap-2">
             <span>✈</span>
-            <span>Flexible Plans. Personal Attention. Real Results.</span>
+            <span>Personal 1-on-1 Sessions • Doorstep or Online • Cancel Anytime</span>
             <span>✈</span>
           </p>
         </div>
@@ -198,10 +207,13 @@ export default function OurPlansSection({ onSelectPlan, onOpenBooking }: OurPlan
                       <p className="text-[11px] font-bold uppercase tracking-widest text-[#5A496E]">
                         {plan.subDays}
                       </p>
+                      <p className="text-xs text-[#7D5A9B] font-semibold mt-1">
+                        {plan.tagline}
+                      </p>
                     </div>
 
-                    {/* Classes per month pill */}
-                    <div className="mt-4 flex justify-center">
+                    {/* Classes per month & Price Anchor pill */}
+                    <div className="mt-4 flex flex-col items-center gap-2">
                       <div className={`inline-flex items-center gap-2 rounded-full px-5 py-2 text-white shadow-xs ${plan.pillBg}`}>
                         {/* Mini yogi icon */}
                         <svg viewBox="0 0 24 24" className="w-4 h-4 fill-white shrink-0">
@@ -212,6 +224,9 @@ export default function OurPlansSection({ onSelectPlan, onOpenBooking }: OurPlan
                           {plan.classes} {plan.subClasses}
                         </span>
                       </div>
+                      <span className="inline-block text-[11px] font-bold px-3 py-0.5 rounded-full bg-amber-50 text-amber-800 border border-amber-200">
+                        {plan.priceAnchor}
+                      </span>
                     </div>
 
                     {/* Features list */}

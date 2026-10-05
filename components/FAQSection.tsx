@@ -32,6 +32,14 @@ export default function FAQSection({ onOpenBooking }: FAQSectionProps) {
       a: 'Yes. Our trainers are certified in therapeutic alignment and clinical yoga. We conduct an initial health assessment and eliminate any risky poses, focusing on gentle spinal traction, lumbar relief, and core strengthening that actively relieves pain.',
     },
     {
+      q: 'What happens if I miss a scheduled session? Can I reschedule?',
+      a: 'Yes, 100%! Life gets busy. You can reschedule any session with just 2 hours advance notice via direct WhatsApp message with your trainer. Your class will not lapse and there is zero cancellation penalty.',
+    },
+    {
+      q: 'Is there any long-term contract or lock-in period?',
+      a: 'None at all. All memberships are month-to-month. You can pause your plan if you travel, switch days, or cancel anytime with a single message — no questions asked and zero hidden fees.',
+    },
+    {
       q: 'What is included in the monthly plans?',
       a: 'Every plan includes dedicated one-to-one sessions (12, 16, or 20 classes per month depending on your chosen frequency), customized diet/lifestyle tips, flexible scheduling, and ongoing progress tracking.',
     },

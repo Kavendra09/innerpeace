@@ -127,9 +127,14 @@ export default function Footer() {
                   </button>
                 </form>
               ) : (
-                <p className="text-xs text-emerald-400 font-semibold mt-2">
-                  ✓ Guide dispatched to your inbox!
-                </p>
+                <div className="mt-2 p-2.5 rounded-xl bg-emerald-950/70 border border-emerald-500/40 text-left">
+                  <p className="text-xs text-emerald-400 font-bold">
+                    ✓ PDF Guide sent! Check your inbox in 2 minutes.
+                  </p>
+                  <p className="text-[10px] text-purple-200/80 mt-0.5">
+                    Includes Yogacharya Ashish&apos;s 5 posture diagrams &amp; desk stretches.
+                  </p>
+                </div>
               )}
             </div>
 

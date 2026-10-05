@@ -246,7 +246,10 @@ export default function ChooseYourGoalSection({
               className="rounded-3xl bg-white border border-[#3A244E]/20 shadow-md overflow-hidden flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:-translate-y-1.5 hover:border-[#7D5A9B]/60 group"
             >
               {/* Card Image */}
-              <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-stone-200">
+              <div 
+                className="relative h-40 sm:h-52 w-full overflow-hidden bg-stone-200 cursor-pointer"
+                onClick={() => onSelectGoal ? onSelectGoal(card.title) : onOpenBooking()}
+              >
                 <Image
                   src={card.image}
                   alt={card.title}
@@ -257,11 +260,16 @@ export default function ChooseYourGoalSection({
               </div>
 
               {/* Purple Title Banner Bar */}
-              <div className="bg-[#4A2E68] text-white py-2.5 px-4 text-center">
-                <h4 className="font-serif text-sm sm:text-base font-bold tracking-wide">
-                  {card.title}
+              <button
+                type="button"
+                onClick={() => onSelectGoal ? onSelectGoal(card.title) : onOpenBooking()}
+                className="bg-[#4A2E68] hover:bg-[#5E3A85] text-white py-2.5 px-4 text-center transition-colors cursor-pointer w-full block"
+              >
+                <h4 className="font-serif text-sm sm:text-base font-bold tracking-wide flex items-center justify-center gap-1.5">
+                  <span>{card.title}</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-[#E5C287] opacity-80 group-hover:translate-x-0.5 transition-transform" />
                 </h4>
-              </div>
+              </button>
 
               {/* Card Content */}
               <div className="p-4 sm:p-6 flex-1 flex flex-col justify-between">
@@ -294,7 +302,8 @@ export default function ChooseYourGoalSection({
                     href={`https://wa.me/919368871615?text=Hello%20InnerPeace%20team,%20I%20would%20like%20to%20know%20more%20about%20${encodeURIComponent(card.title)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="rounded-xl py-2.5 px-3 bg-[#107C41] hover:bg-[#0E6A38] text-white text-xs font-bold transition-all shadow-xs flex items-center justify-center gap-1.5"
+                    aria-label={`Chat about ${card.title} on WhatsApp`}
+                    className="rounded-xl py-2.5 px-3 bg-[#107C41] hover:bg-[#0E6A38] text-white text-xs font-bold transition-all shadow-xs flex items-center justify-center gap-1.5 cursor-pointer"
                   >
                     <MessageCircle className="w-4 h-4 fill-white text-[#107C41]" />
                     <span>Chat Now</span>
@@ -302,9 +311,11 @@ export default function ChooseYourGoalSection({
 
                   <a
                     href="tel:+919368871615"
-                    className="rounded-xl py-2.5 px-3 bg-[#0B5C9E] hover:bg-[#094B82] text-white text-xs font-bold transition-all shadow-xs flex items-center justify-center gap-1.5 cursor-pointer"
+                    aria-label="Call Yogacharya Ashish (+91 93688 71615)"
+                    title="Call Now: +91 93688 71615"
+                    className="rounded-xl py-2.5 px-3 bg-[#0B5C9E] hover:bg-[#094B82] text-white text-xs font-bold transition-all shadow-xs flex items-center justify-center gap-1.5 cursor-pointer group/call relative"
                   >
-                    <PhoneCall className="w-4 h-4" />
+                    <PhoneCall className="w-4 h-4 transition-transform group-hover/call:scale-110" />
                     <span>Call Now</span>
                   </a>
                 </div>

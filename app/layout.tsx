@@ -15,17 +15,18 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "InnerPeace | Live 1-on-1 & Small Group Yoga with Elite Masters",
+  title: "InnerPeace | 1-on-1 Personal Yoga at Home & Live Online with Yogacharya Ashish",
   description:
-    "Experience authentic, interactive live yoga from home. Real-time posture correction, tailored 1-on-1 private training, and intimate group sessions with accredited global masters.",
+    "Experience personalized 1-on-1 yoga sessions at your doorstep or live on HD video. Certified masters led by Yogacharya Ashish. Relieve back pain, lose weight, and reduce stress with zero lock-in contracts.",
   keywords: [
-    "live online yoga",
+    "personal yoga trainer at home",
+    "Yogacharya Ashish yoga",
+    "home yoga classes",
     "private yoga instructor online",
-    "real-time yoga feedback",
-    "interactive yoga classes zoom",
-    "posture correction yoga",
-    "vinyasa live class",
-    "yin yoga stress relief"
+    "back pain sciatica yoga therapy",
+    "live 1-on-1 yoga demo",
+    "prenatal yoga at home",
+    "therapeutic yoga India"
   ],
   metadataBase: new URL("https://innerpeace.com"),
   openGraph: {

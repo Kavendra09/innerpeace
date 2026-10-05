@@ -206,7 +206,16 @@ export default function PricingSection({ onSelectTier }: PricingSectionProps) {
                 30-Day &ldquo;Feel The Alignment Shift&rdquo; Guarantee
               </h4>
               <p className="mt-1 text-xs text-[#5A496E] leading-relaxed">
-                If you don&apos;t feel noticeably more grounded, flexible, and restored within your first 30 days of practice, message us on WhatsApp or email for an immediate 100% refund.
+                If you don&apos;t feel noticeably more grounded, flexible, and restored within your first 30 days of practice, message us on{' '}
+                <a
+                  href="https://wa.me/919368871615?text=Hello%20InnerPeace%20team,%20I%20have%20a%20question%20about%20your%20guarantee"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-bold text-emerald-700 hover:text-emerald-800 underline"
+                >
+                  WhatsApp
+                </a>{' '}
+                or email for an immediate 100% refund.
               </p>
             </div>
           </div>

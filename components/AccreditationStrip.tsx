@@ -7,22 +7,22 @@ export default function AccreditationStrip() {
   const accreditations = [
     {
       title: 'Yoga Alliance Accredited',
-      subtitle: 'E-RYT 500 & YACEP Certified Faculty',
+      subtitle: 'E-RYT 500 & Certified Himalayan Faculty',
       icon: Award,
     },
     {
-      title: 'HSA & FSA Reimbursable',
-      subtitle: 'Itemized superbills with NPI codes',
+      title: 'Flexible Rescheduling',
+      subtitle: 'Reschedule via WhatsApp with zero penalty',
       icon: ShieldCheck,
     },
     {
-      title: 'IAYT Member Lineage',
-      subtitle: 'Clinical & therapeutic alignment protocols',
+      title: 'Zero Lock-in Contract',
+      subtitle: 'Month-to-month plans, pause or cancel anytime',
       icon: HeartPulse,
     },
     {
-      title: 'Encrypted HD 2-Way Video',
-      subtitle: 'HIPAA-conscious privacy & 1-on-1 intimacy',
+      title: 'Doorstep or HD Video',
+      subtitle: 'Certified master at home or live 1-on-1 calls',
       icon: Lock,
     },
   ];

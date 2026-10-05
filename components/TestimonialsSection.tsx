@@ -18,6 +18,7 @@ export default function TestimonialsSection({ onOpenBooking }: TestimonialsSecti
       location: 'Bangalore / Remote',
       category: 'pain',
       condition: 'Severe Lower Back Pain & Sciatica',
+      plan: '★ 3 Days/Week Home Plan',
       image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&auto=format&fit=crop&q=80',
       rating: 5,
       source: 'Google Review',
@@ -30,7 +31,8 @@ export default function TestimonialsSection({ onOpenBooking }: TestimonialsSecti
       role: 'Chartered Accountant & Homemaker',
       location: 'Mumbai',
       category: 'fitness',
-      condition: 'Weight Loss & Couple Fitness (4 Days/Week)',
+      condition: 'Weight Loss & Couple Fitness',
+      plan: '★ 4 Days/Week Couple Plan',
       image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&auto=format&fit=crop&q=80',
       rating: 5,
       source: 'Meta Verified Review',
@@ -44,6 +46,7 @@ export default function TestimonialsSection({ onOpenBooking }: TestimonialsSecti
       location: 'Pune',
       category: 'fitness',
       condition: 'Safe Prenatal & Pelvic Yoga',
+      plan: '★ 1-on-1 Prenatal Protocol',
       image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&auto=format&fit=crop&q=80',
       rating: 5,
       source: 'Google Review',
@@ -57,6 +60,7 @@ export default function TestimonialsSection({ onOpenBooking }: TestimonialsSecti
       location: 'Delhi NCR',
       category: 'pain',
       condition: 'Knee Osteoarthritis & Joint Mobility',
+      plan: '★ 3 Days/Week Joint Therapy',
       image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&auto=format&fit=crop&q=80',
       rating: 5,
       source: 'Google Review',
@@ -70,6 +74,7 @@ export default function TestimonialsSection({ onOpenBooking }: TestimonialsSecti
       location: 'Hyderabad',
       category: 'mental',
       condition: 'Work Exhaustion & Chronic Insomnia',
+      plan: '★ 1-on-1 with Yogacharya Ashish',
       image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&auto=format&fit=crop&q=80',
       rating: 5,
       source: 'Meta Verified Review',
@@ -83,6 +88,7 @@ export default function TestimonialsSection({ onOpenBooking }: TestimonialsSecti
       location: 'Kolkata',
       category: 'mental',
       condition: 'High Blood Pressure & Stress Management',
+      plan: '★ 5 Days/Week Executive Health',
       image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&auto=format&fit=crop&q=80',
       rating: 5,
       source: 'Google Review',
@@ -227,6 +233,13 @@ export default function TestimonialsSection({ onOpenBooking }: TestimonialsSecti
                   </div>
                   <span className="text-[10px] font-bold text-[#4A2E68] bg-[#EFE8F6] px-2.5 py-0.5 rounded-full">
                     {item.condition}
+                  </span>
+                </div>
+
+                {/* Plan Badge */}
+                <div className="mt-2 flex items-center">
+                  <span className="text-[10px] font-bold text-[#7D5A9B] bg-[#FAF8FC] border border-[#7D5A9B]/25 px-2.5 py-0.5 rounded-md">
+                    {item.plan}
                   </span>
                 </div>
 

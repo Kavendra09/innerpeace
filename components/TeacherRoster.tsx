@@ -22,6 +22,7 @@ export default function TeacherRoster({ onSelectTeacher }: TeacherRosterProps) {
       quote: '“Posture is merely the doorway. Once the spine is straight and the breath is long, inner peace arises effortlessly.”',
       image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&auto=format&fit=crop&q=85',
       badge: 'Founder & Master Guide',
+      nextSlot: 'Tomorrow, 7:00 AM',
     },
     {
       name: 'Acharya Devraj',
@@ -35,6 +36,7 @@ export default function TeacherRoster({ onSelectTeacher }: TeacherRosterProps) {
       quote: '“Calm the frantic breath, and the overwhelmed modern mind settles. We do not force calm—we breathe it into being.”',
       image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&auto=format&fit=crop&q=85',
       badge: 'Breathwork Specialist',
+      nextSlot: 'Tomorrow, 8:30 AM',
     },
     {
       name: 'Dr. Meenakshi Sharma',
@@ -48,6 +50,7 @@ export default function TeacherRoster({ onSelectTeacher }: TeacherRosterProps) {
       quote: '“True yoga therapy treats the unique constitutional dosha and spinal structure of each human being.”',
       image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&auto=format&fit=crop&q=85',
       badge: 'Clinical Yoga Doctor',
+      nextSlot: 'Today, 6:00 PM',
     },
     {
       name: 'Maya Chen',
@@ -61,6 +64,7 @@ export default function TeacherRoster({ onSelectTeacher }: TeacherRosterProps) {
       quote: '“Most practitioners force their bodies into shapes. We intelligently sculpt each posture around your skeletal framework.”',
       image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800&auto=format&fit=crop&q=85',
       badge: 'Anatomy Director',
+      nextSlot: 'Tomorrow, 9:00 AM',
     },
   ];
 
@@ -160,8 +164,16 @@ export default function TeacherRoster({ onSelectTeacher }: TeacherRosterProps) {
                 </div>
               </div>
 
-              {/* Action Button */}
-              <div className="p-6 pt-0">
+              {/* Next Available Slot & Action Button */}
+              <div className="p-6 pt-0 space-y-2.5">
+                <div className="flex items-center justify-between text-[11px] bg-emerald-50 border border-emerald-200/80 rounded-xl px-3 py-1.5 text-emerald-800 font-semibold">
+                  <span className="flex items-center gap-1">
+                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                    <span>Next Available Slot:</span>
+                  </span>
+                  <span className="font-bold">{teacher.nextSlot}</span>
+                </div>
+
                 <button
                   onClick={() => onSelectTeacher(teacher.name)}
                   className="w-full rounded-full bg-white hover:bg-[#3A244E] text-[#2A1B3D] hover:text-white border border-[#3A244E]/15 py-2.5 text-xs font-bold transition-all flex items-center justify-center gap-1.5 shadow-xs cursor-pointer"

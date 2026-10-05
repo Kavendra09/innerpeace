@@ -25,6 +25,8 @@ interface BookingModalProps {
   selectedClassTitle?: string;
   selectedTeacher?: string;
   timezone: string;
+  prefillName?: string;
+  prefillPhone?: string;
 }
 
 export default function BookingModal({
@@ -33,14 +35,16 @@ export default function BookingModal({
   selectedClassTitle,
   selectedTeacher,
   timezone,
+  prefillName = '',
+  prefillPhone = '',
 }: BookingModalProps) {
   const [step, setStep] = useState<1 | 2 | 3 | 4>(1);
   const [goal, setGoal] = useState<string>('Spine & Back Pain Therapy');
   const [sessionType, setSessionType] = useState<'home' | 'online'>('home');
   const [trainerPreference, setTrainerPreference] = useState<'any' | 'female' | 'male'>('any');
   const [selectedDate, setSelectedDate] = useState<string>('Tomorrow, 07:30 AM');
-  const [name, setName] = useState<string>('');
-  const [phone, setPhone] = useState<string>('');
+  const [name, setName] = useState<string>(prefillName);
+  const [phone, setPhone] = useState<string>(prefillPhone);
   const [email, setEmail] = useState<string>('');
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [isConfirmed, setIsConfirmed] = useState<boolean>(false);
@@ -49,11 +53,15 @@ export default function BookingModal({
     if (isOpen) {
       setStep(1);
       setIsConfirmed(false);
+      // Pre-fill from hero form but don't overwrite if user already typed
+      if (prefillName && !name) setName(prefillName);
+      if (prefillPhone && !phone) setPhone(prefillPhone);
       if (selectedClassTitle) {
         setGoal(selectedClassTitle);
       }
     }
-  }, [isOpen, selectedClassTitle]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isOpen, selectedClassTitle, prefillName, prefillPhone]);
 
   if (!isOpen) return null;
 
@@ -236,9 +244,12 @@ export default function BookingModal({
 
             {/* 2. Teacher Gender Preference (Major Value Prop) */}
             <div className="mt-4">
-              <label className="text-xs font-bold text-[#2A1B3D] block mb-1.5">
-                Teacher Preference:
+              <label className="text-xs font-bold text-[#2A1B3D] block mb-0.5">
+                Your Comfort Preference:
               </label>
+              <p className="text-[11px] text-[#5A496E] mb-2">
+                We respect and honor your choice — male or female trainers assigned with zero friction.
+              </p>
               <div className="grid grid-cols-3 gap-2">
                 {[
                   { id: 'any', label: 'Any Certified Master' },
